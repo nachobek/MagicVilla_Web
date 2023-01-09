@@ -1,0 +1,74 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/nacho/Development/dotNet/restful_web_api/MagicVilla/MagicVilla_Web/MagicVilla_Web.csproj": {}
+  },
+  "projects": {
+    "/Users/nacho/Development/dotNet/restful_web_api/MagicVilla/MagicVilla_Web/MagicVilla_Web.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/nacho/Development/dotNet/restful_web_api/MagicVilla/MagicVilla_Web/MagicVilla_Web.csproj",
+        "projectName": "MagicVilla_Web",
+        "projectPath": "/Users/nacho/Development/dotNet/restful_web_api/MagicVilla/MagicVilla_Web/MagicVilla_Web.csproj",
+        "packagesPath": "/Users/nacho/.nuget/packages/",
+        "outputPath": "/Users/nacho/Development/dotNet/restful_web_api/MagicVilla/MagicVilla_Web/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/nacho/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.401/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
