@@ -1,0 +1,109 @@
+﻿@model MagicVilla_Web.Models.Dto.VillaCreateDTO
+
+<div class="p-2"></div>
+
+<form asp-action="CreateVilla">
+    <div class="container p-4 border">
+        <h1 class="text-primary">Create Villa</h1>
+
+        <hr />
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Name" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Name" class="form-control" />
+                <span asp-validation-for="@Model.Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Sqft" class="form-label" style="font-size:20px">Square Feets</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Sqft" class="form-control" min="0" />
+                <span asp-validation-for="@Model.Sqft" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Rate" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Rate" class="form-control" type="number" min="0" />
+                <span asp-validation-for="@Model.Rate" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Occupancy" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Occupancy" class="form-control" min="0" />
+                <span asp-validation-for="@Model.Occupancy" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="ImageUrl" class="form-label" style="font-size:20px">Image URL</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.ImageUrl" class="form-control" />
+                <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Amenity" class="form-label" style="font-size:20px">Amenities</label>
+            </div>
+            <div class="col-10">
+                <textarea asp-for="@Model.Amenity" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="@Model.Amenity" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Details" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <textarea asp-for="@Model.Details" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="@Model.Details" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-5 offset-2 pt-2">
+                <a asp-action="IndexVilla" class="btn-primary btn form-control">Back to list</a>
+            </div>
+
+            <div class="col-5 pt-2">
+                <input type="submit" value="Create Villa" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
