@@ -31,7 +31,12 @@ namespace MagicVilla_Web.Services
 
                 if (apiRequest.Data!= null)
                 {
-                    message.Content = new StringContent(JsonConvert.SerializeObject(apiRequest.Data), Encoding.UTF8, "application/json");
+                    message.Content = new StringContent(
+                        JsonConvert.SerializeObject(
+                            apiRequest.Data,
+                            new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore }), // Ignoring nulls to prevent parsing issues when serializing null numbers.
+                        Encoding.UTF8,
+                        "application/json");
                 }
 
                 switch (apiRequest.ApiType)

@@ -15,13 +15,13 @@ namespace MagicVilla_Web.Models.Dto
         public string Details {get; set;}
 
         [Range(0, int.MaxValue)]
-        public int Sqft { get; set; }
+        public int? Sqft { get; set; }
 
         [Range(0.0, double.MaxValue)]
-        public double Rate {get; set;}
+        public double? Rate { get; set;}
 
         [Range(0, int.MaxValue)]
-        public int Occupancy { get; set; }
+        public int? Occupancy { get; set; }
 
         public string ImageUrl { get; set; }
 
