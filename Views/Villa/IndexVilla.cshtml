@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<MagicVilla_Web.Models.Dto.VillaReadDTO>
 
-<div class="p-2"></div>
+<div class="p-4"></div>
 
 <div class="container p-4 border">
     <div class="row pb-2">
@@ -32,7 +32,7 @@
                         @item.Occupancy
                     </td>
                     <td>
-                        @item.Rate.ToString("c")
+                        @(item.Rate.ToString("0.00") == "-0.00" || item.Rate.ToString("0.00") == "0.00" ? "$" : item.Rate.ToString("C"))
                     </td>
                     <td>
                         <a asp-controller="Villa" asp-action="UpdateVilla" asp-route-villaId="@item.Id" class="btn btn-outline-primary"><i class="bi bi-pencil-square"></i></a>
