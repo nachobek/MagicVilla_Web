@@ -1,0 +1,100 @@
+﻿@model MagicVilla_Web.Models.Dto.VillaReadDTO
+
+<div class="p-2"></div>
+
+<div class="container p-4 border">
+    <h1 class="text-primary">Delete Villa</h1>
+
+    <hr />
+
+    <form asp-action="DeleteVilla">
+        <div class="row pt-2">
+            <div class="col-2">
+                <label asp-for="Id" class="form-label" style="font-size:20px">Villa ID</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Id" class="form-control" readonly="@Model.Id" />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="Name" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Name" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="Sqft" class="form-label" style="font-size:20px">Square Feets</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Sqft" class="form-control" disabled/>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="Rate" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Rate" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="Occupancy" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Occupancy" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="ImageUrl" class="form-label" style="font-size:20px">Image URL</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.ImageUrl" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="Amenity" class="form-label" style="font-size:20px">Amenities</label>
+            </div>
+            <div class="col-10">
+                <textarea asp-for="@Model.Amenity" class="form-control" rows="5" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+
+            <div class="col-2">
+                <label asp-for="Details" class="form-label" style="font-size:20px"></label>
+            </div>
+            <div class="col-10">
+                <textarea asp-for="@Model.Details" class="form-control" rows="5" disabled></textarea>
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-5 offset-2 pt-2">
+                <a asp-action="IndexVilla" class="btn-primary btn form-control">Back to list</a>
+            </div>
+
+            <div class="col-5 pt-2">
+                <input type="submit" value="Delete Villa" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,12 +1,34 @@
-﻿@model MagicVilla_Web.Models.Dto.VillaCreateDTO
+﻿@model MagicVilla_Web.Models.Dto.VillaUpdateDTO
 
 <div class="p-2"></div>
 
-<form asp-action="CreateVilla">
-    <div class="container p-4 border">
-        <h1 class="text-primary">Create Villa</h1>
 
-        <hr />
+<div class="container p-4 border">
+    <h1 class="text-primary">Update Villa</h1>
+
+    <hr />
+
+    <form asp-action="UpdateVilla">
+        @*
+            We must have the villa ID in the form, so it's passed back to the controller on Submit/Post to be updated.
+            There are two ways to achieve this. We can either show the ID to the client and make read only.
+            Or we can create a hidden field, the ID is not displayed in the UI but it's part of the form.
+        *@
+
+        @* Option 1 - Display only field.
+        <div class="row pt-2">
+            <div class="col-2">
+                <label asp-for="Id" class="form-label" style="font-size:20px">Villa ID</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Id" class="form-control" readonly="@Model.Id" />
+            </div>
+        </div>
+        *@
+
+        @* Option 2 - Hidden input *@
+
+        <input asp-for="@Model.Id" hidden />
 
         <div class="row pt-2">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -27,8 +49,8 @@
                 <label asp-for="Sqft" class="form-label" style="font-size:20px">Square Feets</label>
             </div>
             <div class="col-10">
-                <input asp-for="@Model.Sqft" class="form-control" type="number" />
-                <span asp-validation-for="@Model.Sqft" class="text-danger"></span> 
+                <input asp-for="@Model.Sqft" class="form-control" type="number"/>
+                 <span asp-validation-for="@Model.Sqft" class="text-danger"></span> 
             </div>
         </div>
 
@@ -40,7 +62,7 @@
             </div>
             <div class="col-10">
                 <input asp-for="@Model.Rate" class="form-control" type="number" step="any" />
-                <span asp-validation-for="@Model.Rate" class="text-danger"></span> 
+                <span asp-validation-for="@Model.Rate" class="text-danger"></span>
             </div>
         </div>
 
@@ -52,7 +74,7 @@
             </div>
             <div class="col-10">
                 <input asp-for="@Model.Occupancy" class="form-control" />
-                <span asp-validation-for="@Model.Occupancy" class="text-danger"></span> 
+                 <span asp-validation-for="@Model.Occupancy" class="text-danger"></span> 
             </div>
         </div>
 
@@ -98,12 +120,8 @@
             </div>
 
             <div class="col-5 pt-2">
-                <input type="submit" value="Create Villa" class="btn btn-success form-control" />
+                <input type="submit" value="Update Villa" class="btn btn-success form-control" />
             </div>
         </div>
-    </div>
-</form>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+    </form>
+</div>
