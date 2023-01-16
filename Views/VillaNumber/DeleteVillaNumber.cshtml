@@ -1,0 +1,48 @@
+﻿@model MagicVilla_Web.Models.Dto.VillaNumberReadDTO
+
+<div class="p-2"></div>
+
+<div class="container p-4 border">
+    <h1 class="text-primary">Delete Villa Number</h1>
+
+    <hr />
+
+    <form asp-action="DeleteVillaNumber">
+        <div class="row pt-2">
+            <div class="col-2">
+                <label asp-for="VillaNo" class="form-label" style="font-size: 20px">Villa Number</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.VillaNo" class="form-control" readonly="@Model.VillaNo" />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-2">
+                <label asp-for="@Model.Villa.Name" class="form-label" style="font-size: 20px">Villa Name</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.Villa.Name" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-2">
+                <label asp-for="SpecialDetails" class="form-label" style="font-size: 20px">Special Details</label>
+            </div>
+            <div class="col-10">
+                <input asp-for="@Model.SpecialDetails" class="form-control" disabled />
+            </div>
+        </div>
+
+        <div class="row pt-2">
+            <div class="col-5 offset-2 pt-2">
+                <a asp-action="IndexVillaNumber" class="btn-primary btn form-control">Back to list</a>
+            </div>
+
+            <div class="col-5 pt-2">
+                <input value="Delete Villa Number" type="submit" class="btn btn-danger form-control" />
+            </div>
+        </div>
+    </form>
+</div>
