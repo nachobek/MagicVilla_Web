@@ -46,10 +46,10 @@ namespace MagicVilla_Web.Controllers
                     foreach (var villa in villaList)
                     {
                         villaNameDropdown.Add(new SelectListItem
-                            {
-                                Text = villa.Name,
-                                Value = villa.Id.ToString(),
-                            });
+                        {
+                            Text = villa.Name,
+                            Value = villa.Id.ToString(),
+                        });
                     }
                 }
             }
@@ -71,7 +71,16 @@ namespace MagicVilla_Web.Controllers
 
                 if (apiResponse != null && apiResponse.IsSuccess)
                 {
+                    TempData["success"] = "Villa Number created successfully";
+
                     return RedirectToAction(nameof(IndexVillaNumber));
+                }
+                else
+                {
+                    if (!apiResponse.IsSuccess || apiResponse.ErrorMessages.Count > 0)
+                    {
+                        ModelState.AddModelError("ErrorMessages", apiResponse.ErrorMessages.FirstOrDefault());
+                    }
                 }
             }
 
@@ -97,6 +106,8 @@ namespace MagicVilla_Web.Controllers
                     }
                 }
             }
+
+            TempData["error"] = "Villa Number could not be created";
 
             ViewData["VillaNameDropdown"] = villaNameDropdown;
 
@@ -152,6 +163,8 @@ namespace MagicVilla_Web.Controllers
 
                 if (apiResponse != null && apiResponse.IsSuccess)
                 {
+                    TempData["success"] = "Villa Number updated successfully";
+
                     return RedirectToAction(nameof(IndexVillaNumber));
                 }
             }
@@ -179,6 +192,8 @@ namespace MagicVilla_Web.Controllers
                 }
             }
 
+            TempData["error"] = "Villa Number could not be updated";
+
             ViewData["VillaNameDropdown"] = villaNameDropdown;
 
             return View(villaNumber);
@@ -202,7 +217,16 @@ namespace MagicVilla_Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteVillaNumber(VillaNumberReadDTO villaNumberReadDTO)
         {
-            await _villaNumberService.DeleteAsync<APIResponse>(villaNumberReadDTO.VillaNo);
+            var apiResponse = await _villaNumberService.DeleteAsync<APIResponse>(villaNumberReadDTO.VillaNo);
+
+            if (apiResponse != null && apiResponse.IsSuccess)
+            {
+                TempData["success"] = "Villa Number deleted successfully";
+            }
+            else
+            {
+                TempData["error"] = "Villa Number could not be deleted";
+            }
 
             return RedirectToAction(nameof(IndexVillaNumber));
         }
