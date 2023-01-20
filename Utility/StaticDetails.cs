@@ -9,5 +9,7 @@ namespace MagicVilla_Web.Utility
             PUT,
             DELETE
         }
+
+        public readonly static string SessionToken = "JWTToken";
     }
 }

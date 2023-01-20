@@ -4,6 +4,7 @@ using MagicVilla_Web.Models;
 using MagicVilla_Web.Services.IServices;
 using Newtonsoft.Json;
 using MagicVilla_Web.Models.Dto;
+using MagicVilla_Web.Utility;
 
 namespace MagicVilla_Web.Controllers;
 
@@ -20,7 +21,7 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var apiResponse = await _villaService.GetAllAsync<APIResponse>();
+        var apiResponse = await _villaService.GetAllAsync<APIResponse>(HttpContext.Session.GetString(StaticDetails.SessionToken));
 
         if (apiResponse != null && apiResponse.IsSuccess)
         {

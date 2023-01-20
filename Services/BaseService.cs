@@ -2,6 +2,7 @@ using MagicVilla_Web.Models;
 using MagicVilla_Web.Services.IServices;
 using MagicVilla_Web.Utility;
 using Newtonsoft.Json;
+using System.Net.Http.Headers;
 using System.Text;
 
 namespace MagicVilla_Web.Services
@@ -59,6 +60,11 @@ namespace MagicVilla_Web.Services
 
                     default:
                         throw new Exception("HTTP method not supported.");
+                }
+
+                if (!string.IsNullOrEmpty(apiRequest.Token))
+                {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiRequest.Token);
                 }
 
                 HttpResponseMessage httpResponse = await client.SendAsync(message);
